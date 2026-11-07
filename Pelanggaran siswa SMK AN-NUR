@@ -1,0 +1,53 @@
+const S="Siswa", P="Pelanggaran";
+function doGet(){return HtmlService.createHtmlOutputFromFile("index").setTitle("Sistem Pelanggaran Siswa - SMK An-Nur").addMetaTag("viewport","width=device-width, initial-scale=1");}
+function setupDatabase(){
+ const ss=SpreadsheetApp.getActiveSpreadsheet();
+ let a=ss.getSheetByName(S)||ss.insertSheet(S), b=ss.getSheetByName(P)||ss.insertSheet(P);
+ if(a.getLastRow()===0){a.appendRow(["NIS","Nama Siswa","Kelas","Waktu Ditambahkan"]);a.setFrozenRows(1);}
+ if(b.getLastRow()===0){b.appendRow(["ID","Tanggal Input","Tanggal Kejadian","NIS","Nama Siswa","Kelas","Jenis Pelanggaran","Poin","Keterangan / Tindak Lanjut","Petugas"]);b.setFrozenRows(1);}
+ a.getRange("A:A").setNumberFormat("@");b.getRange("A:A").setNumberFormat("@");
+ return "Database siap digunakan.";
+}
+function getData(){
+ const ss=SpreadsheetApp.getActiveSpreadsheet(), a=ss.getSheetByName(S), b=ss.getSheetByName(P);
+ if(!a||!b)throw Error("Jalankan setupDatabase() terlebih dahulu.");
+ const sr=a.getLastRow()>1?a.getRange(2,1,a.getLastRow()-1,4).getDisplayValues():[];
+ const pr=b.getLastRow()>1?b.getRange(2,1,b.getLastRow()-1,10).getDisplayValues():[];
+ const students=sr.filter(r=>r[0]&&r[1]).map(r=>({nis:r[0],nama:r[1],kelas:r[2]}));
+ const violations=pr.filter(r=>r[0]).reverse().map(r=>({id:r[0],tanggal:r[2],nis:r[3],nama:r[4],kelas:r[5],jenis:r[6],poin:Number(r[7])||0,keterangan:r[8],petugas:r[9]}));
+ return {students,violations,totalPoints:violations.reduce((n,v)=>n+v.poin,0)};
+}
+function addStudent(d){
+ const nis=clean(d.nis,30), nama=clean(d.nama,100), kelas=clean(d.kelas,50);
+ if(!nis||!nama||!kelas)throw Error("NIS, nama, dan kelas wajib diisi.");
+ const lock=LockService.getScriptLock();lock.waitLock(10000);
+ try{const sh=SpreadsheetApp.getActiveSpreadsheet().getSheetByName(S), n=sh.getLastRow();
+  const old=n>1?sh.getRange(2,1,n-1,1).getDisplayValues().flat():[];
+  if(old.includes(nis))throw Error("NIS sudah terdaftar.");
+  sh.appendRow([nis,nama,kelas,new Date()]);return getData();
+ }finally{lock.releaseLock();}
+}
+function addStudentsBulk(raw){
+ const lines=String(raw||"").split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ if(!lines.length)throw Error("Tempelkan data siswa terlebih dahulu.");
+ const lock=LockService.getScriptLock();lock.waitLock(10000);
+ try{const sh=SpreadsheetApp.getActiveSpreadsheet().getSheetByName(S),n=sh.getLastRow();
+  const seen=new Set(n>1?sh.getRange(2,1,n-1,1).getDisplayValues().flat():[]), rows=[],skipped=[];
+  lines.forEach((line,i)=>{const p=line.split("|").map(x=>x.trim());if(p.length<3||!p[0]||!p[1]||!p[2]){skipped.push("Baris "+(i+1)+" tidak lengkap");return;}
+   if(seen.has(p[0])){skipped.push("NIS "+p[0]+" sudah ada");return;}seen.add(p[0]);rows.push([p[0],p[1],p[2],new Date()]);});
+  if(rows.length)sh.getRange(sh.getLastRow()+1,1,rows.length,4).setValues(rows);
+  return {data:getData(),added:rows.length,skipped};
+ }finally{lock.releaseLock();}
+}
+function addViolation(d){
+ const nis=clean(d.nis,30),tanggal=clean(d.tanggal,20),jenis=clean(d.jenis,100),ket=clean(d.keterangan,500),poin=Number(d.poin);
+ if(!nis||!tanggal||!jenis||!Number.isInteger(poin)||poin<1||poin>100)throw Error("Lengkapi data dan isi poin antara 1-100.");
+ const lock=LockService.getScriptLock();lock.waitLock(10000);
+ try{const ss=SpreadsheetApp.getActiveSpreadsheet(),a=ss.getSheetByName(S),b=ss.getSheetByName(P),n=a.getLastRow();
+  const rows=n>1?a.getRange(2,1,n-1,3).getDisplayValues():[],s=rows.find(r=>r[0]===nis);
+  if(!s)throw Error("Siswa tidak ditemukan. Tambahkan data siswa dahulu.");
+  b.appendRow([Utilities.getUuid(),new Date(),tanggal,s[0],s[1],s[2],jenis,poin,ket,Session.getActiveUser().getEmail()||"Petugas BK"]);
+  return getData();
+ }finally{lock.releaseLock();}
+}
+function clean(v,n){return String(v==null?"":v).trim().replace(/[<>]/g,"").slice(0,n);}
