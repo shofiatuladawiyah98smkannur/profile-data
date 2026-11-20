@@ -1,48 +1,203 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Personal Profile — Shofiatul A.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#08090c;--line:rgba(255,255,255,.14);--text:#f5f5f7;--muted:#a6a8b0}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:radial-gradient(ellipse at 78% 8%,rgba(190,195,210,.15),transparent 30%),radial-gradient(ellipse at 8% 48%,rgba(120,125,145,.1),transparent 32%),linear-gradient(135deg,#08090c,#17181e 48%,#07080a);font-family:"Space Grotesk",Arial,sans-serif;line-height:1.65;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:54px 54px}
-a{color:inherit;text-decoration:none}.web-art{position:fixed;width:min(58vw,680px);right:-130px;top:80px;opacity:.11;pointer-events:none;z-index:-1;filter:drop-shadow(0 0 25px #fff)}
-.nav{width:min(1160px,92%);margin:auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line)}
-.brand{font-family:"Barlow Condensed",sans-serif;font-size:1.25rem;font-weight:900;letter-spacing:2px}.brand span{color:#999da8}.nav-links{display:flex;gap:23px;flex-wrap:wrap;font-size:.82rem;color:#c6c7cd}.nav-links a:hover{color:white}
-.hero{width:min(1160px,92%);margin:auto;min-height:76vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:55px;padding:72px 0 86px}
-.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:4px;color:#bfc1ca;font-weight:700}
-h1,h2,h3{margin-top:0}h1{font-family:"Barlow Condensed",Impact,sans-serif;font-size:clamp(4rem,10vw,8.3rem);line-height:.84;letter-spacing:-2px;text-transform:uppercase;margin:22px 0 25px;font-weight:900;text-shadow:0 2px 0 #777,0 5px 22px rgba(255,255,255,.13)}
-.shine{display:block;color:transparent;background:linear-gradient(110deg,#fff 5%,#9296a2 30%,#fff 47%,#747985 63%,#f6f6f8 82%);background-clip:text;-webkit-background-clip:text}
-.hero p{color:var(--muted);max-width:560px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.btn{display:inline-block;padding:12px 19px;border:1px solid #f2f2f5;background:linear-gradient(135deg,#fff,#aeb1bb);color:#111217;border-radius:7px;font-size:.85rem;font-weight:700;box-shadow:0 7px 25px #ffffff17;transition:transform .2s}.btn:hover{transform:translateY(-3px)}.btn.ghost{background:#ffffff09;color:#f4f4f6;border-color:var(--line);box-shadow:none}
-.profile-visual{position:relative;width:min(100%,390px);aspect-ratio:.83;justify-self:center;border:1px solid #ffffff47;border-radius:18px;padding:12px;transform:rotate(2deg);background:linear-gradient(145deg,#ffffff30,#ffffff04 35%,#ffffff14);box-shadow:0 25px 80px #0008,inset 0 1px 0 #ffffff38}
-.profile-inner{width:100%;height:100%;border-radius:11px;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 35%,#454751,#191a20 48%,#0b0c10)}
-.mask-art{width:82%;max-width:290px;filter:drop-shadow(0 10px 24px #ffffff26)}.profile-label{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:3px;margin-top:10px}.profile-sub{color:#a8abb4;font-size:.72rem;letter-spacing:2px;text-transform:uppercase}.corner{position:absolute;font-size:.65rem;letter-spacing:2px;color:#d0d1d7}.corner.top{top:17px;left:18px}.corner.bottom{bottom:16px;right:18px}
-section{width:min(1040px,92%);margin:auto;padding:72px 0}.section-head{margin-bottom:27px}.num{color:#858995;font-size:.72rem;letter-spacing:3px}h2{font-family:"Barlow Condensed",Impact,sans-serif;font-size:clamp(2.8rem,6vw,4.4rem);text-transform:uppercase;letter-spacing:.5px;line-height:1;margin:8px 0} .section-head p{color:var(--muted);margin:8px 0 0}
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.panel{border:1px solid var(--line);border-radius:13px;padding:25px;background:linear-gradient(140deg,#ffffff16,#ffffff06 65%);box-shadow:inset 0 1px 0 #ffffff12,0 14px 40px #0002;backdrop-filter:blur(10px)}.panel h3{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;font-size:1.7rem;letter-spacing:1px;margin-bottom:10px}.panel p{color:var(--muted);margin:0}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:11px}.fact{padding:13px;border:1px solid #ffffff17;border-radius:8px;background:#0003;min-width:0}.fact small{display:block;color:#8f929d;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}.fact strong{font-size:.9rem;overflow-wrap:anywhere}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.tile{min-height:155px}.symbol{font-size:1.7rem;margin-bottom:12px}.tile h3{margin-bottom:5px}.tile p{font-size:.9rem}
-.quote{border-left:3px solid #d5d7df;padding:7px 0 7px 22px;font-family:"Barlow Condensed",sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);text-transform:uppercase;line-height:1.1;color:#e3e4e8}
-.contact-panel{text-align:center;padding:42px 25px}.contact-panel p{margin:0 auto;max-width:520px}footer{width:min(1160px,92%);margin:auto;border-top:1px solid var(--line);padding:24px 0 35px;color:#777b86;font-size:.78rem;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-@media(max-width:760px){.nav{align-items:flex-start;flex-direction:column}.nav-links{gap:14px}.hero{grid-template-columns:1fr;padding:60px 0;gap:40px}.profile-visual{width:min(82%,340px)}.about-grid,.tiles{grid-template-columns:1fr}section{padding:55px 0}.web-art{width:100vw;right:-100px;top:220px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autumn in Edinburgh | My Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f4eadb;
+      --sand: #dfc7a8;
+      --tan: #b98d65;
+      --brown: #684832;
+      --deep: #35251d;
+      --rust: #a6532e;
+      --gold: #c58a42;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--deep); font-family: "DM Sans", sans-serif;
+      background: linear-gradient(135deg, #ead8c1 0%, #c9a783 48%, #76543d 100%);
+      min-height: 100vh; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(255,247,231,.8), transparent 36%),
+        radial-gradient(ellipse at 85% 70%, rgba(68,39,24,.38), transparent 42%);
+    }
+    .falling-leaves { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 5; }
+    .leaf {
+      position: absolute; top: -12vh; color: var(--rust); opacity: .55;
+      text-shadow: 0 5px 12px rgba(54,31,18,.25);
+      animation: fall linear infinite; user-select: none;
+    }
+    .leaf:nth-child(1) { left: 5%; font-size: 25px; animation-duration: 17s; animation-delay: -4s; }
+    .leaf:nth-child(2) { left: 17%; font-size: 18px; animation-duration: 21s; animation-delay: -12s; color: #bd7a32; }
+    .leaf:nth-child(3) { left: 29%; font-size: 30px; animation-duration: 19s; animation-delay: -8s; }
+    .leaf:nth-child(4) { left: 43%; font-size: 20px; animation-duration: 23s; animation-delay: -16s; color: #d19a4e; }
+    .leaf:nth-child(5) { left: 58%; font-size: 26px; animation-duration: 18s; animation-delay: -6s; }
+    .leaf:nth-child(6) { left: 70%; font-size: 19px; animation-duration: 22s; animation-delay: -14s; color: #c47a35; }
+    .leaf:nth-child(7) { left: 83%; font-size: 29px; animation-duration: 20s; animation-delay: -10s; }
+    .leaf:nth-child(8) { left: 94%; font-size: 22px; animation-duration: 24s; animation-delay: -18s; color: #d19a4e; }
+    @keyframes fall {
+      0% { transform: translate3d(0,-10vh,0) rotate(0deg); }
+      25% { transform: translate3d(35px,25vh,0) rotate(100deg); }
+      50% { transform: translate3d(-25px,52vh,0) rotate(220deg); }
+      75% { transform: translate3d(40px,78vh,0) rotate(300deg); }
+      100% { transform: translate3d(-15px,115vh,0) rotate(420deg); }
+    }
+    .wrap { width: min(1100px, 92%); margin: auto; padding: 26px 0 45px; }
+    nav {
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+      padding: 13px 20px; border: 1px solid rgba(91,60,39,.2);
+      background: rgba(250,240,225,.58); backdrop-filter: blur(14px);
+      border-radius: 18px; box-shadow: 0 10px 30px rgba(60,38,23,.08);
+    }
+    .brand { font-family: "Playfair Display", serif; font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+    nav a { color: var(--brown); text-decoration: none; font-size: 13px; margin-left: 18px; }
+    nav a:hover { color: var(--rust); }
+    .hero {
+      margin-top: 28px; min-height: 470px; display: grid; grid-template-columns: 1.1fr .9fr;
+      align-items: center; gap: 25px; padding: clamp(28px,5vw,60px);
+      border-radius: 28px; overflow: hidden; position: relative;
+      background: linear-gradient(115deg, rgba(250,241,226,.94), rgba(224,198,166,.82));
+      box-shadow: 0 24px 65px rgba(48,29,17,.18);
+      border: 1px solid rgba(255,250,240,.65);
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 390px; height: 390px; right: -110px; top: -125px;
+      border-radius: 50%; background: rgba(150,86,47,.12);
+    }
+    .eyebrow { text-transform: uppercase; letter-spacing: 3px; color: var(--rust); font-size: 11px; font-weight: 700; }
+    h1 { font: 600 clamp(42px,6vw,72px)/1.05 "Playfair Display",serif; margin: 16px 0; color: #4a3022; }
+    h1 span { color: var(--rust); font-style: italic; }
+    .intro { max-width: 490px; line-height: 1.85; color: #73583f; font-size: 15px; }
+    .btn {
+      display: inline-block; margin-top: 18px; padding: 13px 21px; border-radius: 30px;
+      background: var(--brown); color: #fff5e9; text-decoration: none; font-size: 13px;
+      box-shadow: 0 8px 18px rgba(72,45,28,.2); transition: .25s;
+    }
+    .btn:hover { transform: translateY(-3px); background: var(--rust); }
+    .portrait-wrap { justify-self: center; position: relative; z-index: 1; }
+    .portrait {
+      width: clamp(220px,28vw,310px); aspect-ratio: 4/5; border-radius: 48% 48% 22px 22px;
+      border: 9px solid rgba(255,248,236,.72); background:
+        linear-gradient(rgba(75,48,31,.15),rgba(75,48,31,.15)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=85") center/cover;
+      box-shadow: 0 20px 45px rgba(58,35,20,.22); display: grid; place-items: end center;
+      overflow: hidden;
+    }
+    .portrait span { background: rgba(54,36,25,.72); color: #fff0dc; padding: 9px 17px; margin-bottom: 17px; border-radius: 20px; font-size: 11px; letter-spacing: 1px; }
+    .section { margin-top: 28px; padding: 36px; border-radius: 25px; background: rgba(248,237,220,.82); box-shadow: 0 16px 40px rgba(55,34,20,.12); }
+    .section-heading { margin: 0 0 8px; font: 600 32px "Playfair Display",serif; color: #4a3022; }
+    .sub { color: #876b51; font-size: 13px; margin: 0 0 24px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .info {
+      padding: 17px 18px; border-radius: 15px; background: rgba(218,192,160,.42);
+      border: 1px solid rgba(120,82,51,.1);
+    }
+    .info small { display: block; color: #986b48; text-transform: uppercase; letter-spacing: 1.5px; font-size: 10px; margin-bottom: 7px; }
+    .info strong { font-size: 14px; font-weight: 600; color: #523a29; }
+    .story { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: center; }
+    .story-photo {
+      min-height: 260px; border-radius: 18px; background:
+      linear-gradient(0deg,rgba(45,31,23,.24),transparent),
+      url("https://images.unsplash.com/photo-1506377585622-bedcbb027afc?auto=format&fit=crop&w=1000&q=85") center/cover;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.25);
+    }
+    .story p { line-height: 1.9; color: #73583f; font-size: 14px; }
+    .quote { font: italic 23px/1.5 "Playfair Display",serif; color: #81502f; border-left: 3px solid #b87942; padding-left: 18px; margin: 20px 0 0; }
+    .interest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 13px; }
+    .interest {
+      min-height: 120px; padding: 20px; border-radius: 17px; background: #e6d1b6;
+      display: flex; flex-direction: column; justify-content: space-between; transition: .25s;
+    }
+    .interest:hover { transform: translateY(-5px); background: #d8b994; }
+    .interest b { font: 600 18px "Playfair Display",serif; color: #593b28; }
+    .interest span { font-size: 12px; color: #85654a; }
+    footer { text-align: center; color: #f7ead8; font-size: 12px; padding: 27px 0 5px; letter-spacing: 1px; }
+    @media (max-width: 720px) {
+      nav { align-items: flex-start; flex-direction: column; }
+      nav a { margin: 0 13px 0 0; }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .intro { margin-inline: auto; }
+      .portrait-wrap { grid-row: 1; }
+      .about-grid, .story { grid-template-columns: 1fr; }
+      .interest-grid { grid-template-columns: 1fr 1fr; }
+      .section { padding: 25px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
 </head>
 <body>
-<svg class="web-art" viewBox="0 0 500 500" aria-hidden="true"><g fill="none" stroke="#d9dbe2" stroke-width="2"><path d="M250 15V485M15 250H485M83 83L417 417M417 83L83 417"/><path d="M250 15Q220 115 250 250Q280 115 250 15M250 485Q220 385 250 250Q280 385 250 485M15 250Q115 220 250 250Q115 280 15 250M485 250Q385 220 250 250Q385 280 485 250"/><path d="M83 83Q190 105 250 250Q310 105 417 83M83 417Q190 395 250 250Q310 395 417 417M83 83Q105 190 250 250Q105 310 83 417M417 83Q395 190 250 250Q395 310 417 417"/><circle cx="250" cy="250" r="85"/><circle cx="250" cy="250" r="165"/><circle cx="250" cy="250" r="235"/></g></svg>
-<nav class="nav"><a class="brand" href="#home">PERSONAL<span> / PROFILE</span></a><div class="nav-links"><a href="#about">ABOUT</a><a href="#details">DETAILS</a><a href="#interests">INTERESTS</a><a href="#contact">CONTACT</a></div></nav>
-<main>
-<header class="hero" id="home"><div><div class="eyebrow">A Glimpse of myself · 2026</div><h1>THIS IS<br><span class="shine">Shofiatul A.</span></h1><p>Welcome to my personal profile. Tempat kecil untuk mengenal siapa aku, hal-hal yang aku suka, dan cerita yang ingin aku bagikan. Silakan jelajahi halaman ini.</p><div class="actions"><a class="btn" href="#about">GET TO KNOW ME ↘</a><a class="btn ghost" href="#details">MY PROFILE +</a></div></div>
-<div class="profile-visual"><div class="profile-inner"><div class="corner top">FIG. 001 — PROFILE</div>
-<!-- Ilustrasi topeng superhero laba-laba orisinal bergaya monokrom -->
-<svg class="mask-art" viewBox="0 0 300 330" role="img" aria-label="Ilustrasi topeng superhero laba-laba monokrom"><defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f4f6"/><stop offset=".42" stop-color="#b8bbc4"/><stop offset="1" stop-color="#555963"/></linearGradient></defs><path d="M150 12C126 32 76 42 48 66L30 132L47 225Q74 278 150 313Q226 278 253 225L270 132L252 66C224 42 174 32 150 12Z" fill="url(#metal)" stroke="#f8f8fa" stroke-width="3"/><path d="M150 22V304M50 75L150 112L250 75M36 133L116 157L150 112L184 157L264 133M48 224L119 205L150 250L181 205L252 224M75 275L125 253L150 286L175 253L225 275" fill="none" stroke="#383b43" stroke-width="2.4"/><path d="M55 115Q82 88 128 137L112 177Q79 170 55 115ZM245 115Q218 88 172 137L188 177Q221 170 245 115Z" fill="#101116" stroke="#fff" stroke-width="4"/><path d="M63 118Q85 105 119 139L109 164Q84 158 63 118ZM237 118Q215 105 181 139L191 164Q216 158 237 118Z" fill="#f0f1f4"/><path d="M150 14V110M30 132L84 197L47 225M270 132L216 197L253 225M80 54L117 115M220 54L183 115" fill="none" stroke="#fff" stroke-width="1.5" opacity=".6"/></svg>
-<div class="profile-label">Shofiatul A.</div><div class="profile-sub">your own universe</div><div class="corner bottom">EST. 20XX</div></div></div></header>
-<section id="about"><div class="section-head"><div class="num">01 — INTRODUCTION</div><h2>ABOUT ME.</h2><p>Sedikit perkenalan tentang orang di balik halaman ini.</p></div><div class="about-grid"><article class="panel"><h3>Who Am I?</h3><p>Hai! Aku <strong>Nama Kamu</strong>. Aku adalah seseorang yang senang mencoba hal baru, belajar dari pengalaman, dan menikmati hal-hal yang punya arti buatku. Website ini adalah ruang kecil untuk memperkenalkan diriku dengan caraku sendiri.</p></article>
-<article class="panel" id="details"><h3>Profile Details</h3><div class="facts"><div class="fact"><small>Full Name</small><strong>Nama lengkap</strong></div><div class="fact"><small>Nickname</small><strong>Nama panggilan</strong></div><div class="fact"><small>Location</small><strong>Domisili</strong></div><div class="fact"><small>Occupation</small><strong>Pelajar</strong></div><div class="fact"><small>Birthday</small><strong>DD / MM</strong></div><div class="fact"><small>Motto</small><strong>Keep growing.</strong></div></div></article></div></section>
-<section id="interests"><div class="section-head"><div class="num">02 — PERSONAL SIDE</div><h2>MY INTERESTS.</h2><p>Hal-hal yang aku suka dan ingin aku kenalkan.</p></div><div class="tiles"><article class="panel tile"><div class="symbol">◈</div><h3>Hobbies</h3><p>Tulis hobi yang kamu suka, misalnya mendengarkan musik, membaca, menggambar, atau bermain game.</p></article><article class="panel tile"><div class="symbol">♫</div><h3>Favorite Music</h3><p>Tulis penyanyi, band, atau lagu favorit yang sering menemani harimu.</p></article><article class="panel tile"><div class="symbol">✦</div><h3>Favorite Things</h3><p>Tulis warna, film, makanan, tempat, atau hal kecil yang kamu sukai.</p></article></div></section>
-<section><div class="quote">“Becoming who I am, one day at a time.”</div></section>
-<section id="contact"><div class="panel contact-panel"><div class="section-head"><div class="num">03 — END OF PAGE</div><h2>LET'S CONNECT.</h2><p>Terima kasih sudah mampir ke halaman pribadiku. Kamu bisa menambahkan tautan media sosial di bagian ini jika ingin.</p></div><a class="btn ghost" href="#home">BACK TO TOP ↑</a></div></section>
-</main><footer><span>© 2026 · Shofiatul A.</span><span>DESIGNED IN MONOCHROME ◈</span></footer>
-</body></html>
+  <div class="falling-leaves" aria-hidden="true">
+    <span class="leaf">🍂</span><span class="leaf">🍁</span><span class="leaf">🍂</span><span class="leaf">🍁</span>
+    <span class="leaf">🍂</span><span class="leaf">🍁</span><span class="leaf">🍂</span><span class="leaf">🍁</span>
+  </div>
+  <main class="wrap">
+    <nav>
+      <div class="brand">Autumn Journal.</div>
+      <div><a href="#home">Home</a><a href="#about">About Me</a><a href="#story">My Story</a><a href="#interests">Interests</a></div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">A little piece of my world · Edinburgh mood</div>
+        <h1>Hello, I'm<br><span>Your Name.</span></h1>
+        <p class="intro">Selamat datang di halaman kecil tentang diriku. Terinspirasi dari suasana musim gugur di Edinburgh—jalan berbatu, bangunan klasik, udara sejuk, dan daun-daun keemasan yang jatuh perlahan.</p>
+        <a class="btn" href="#about">Discover my story ↗</a>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait"><span>YOUR PHOTO HERE</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2 class="section-heading">A little about me</h2>
+      <p class="sub">Beberapa hal sederhana tentang diriku.</p>
+      <div class="about-grid">
+        <div class="info"><small>Full name</small><strong>Nama Lengkap Kamu</strong></div>
+        <div class="info"><small>Nickname</small><strong>Nama Panggilan</strong></div>
+        <div class="info"><small>Date of birth</small><strong>DD Month YYYY</strong></div>
+        <div class="info"><small>Location</small><strong>Kota, Indonesia</strong></div>
+        <div class="info"><small>Education</small><strong>Nama Sekolah</strong></div>
+        <div class="info"><small>Favorite season</small><strong>Autumn 🍁</strong></div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <h2 class="section-heading">My little story</h2>
+      <p class="sub">A quiet heart beneath the autumn sky.</p>
+      <div class="story">
+        <div class="story-photo" role="img" aria-label="Pemandangan kota bernuansa musim gugur"></div>
+        <div>
+          <p>Aku adalah seseorang yang masih terus belajar, tumbuh, dan menemukan banyak hal baru. Aku menyukai momen-momen sederhana, suasana yang tenang, serta hal kecil yang bisa membuat hari terasa lebih berarti.</p>
+          <p>Jika hidup adalah sebuah perjalanan, aku ingin menjalaninya perlahan—seperti berjalan menyusuri Old Town Edinburgh saat dedaunan berubah warna.</p>
+          <div class="quote">“Somewhere between the falling leaves, I find a little peace.”</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="interests">
+      <h2 class="section-heading">Things I love</h2>
+      <p class="sub">Hal-hal yang membuat hariku lebih berwarna.</p>
+      <div class="interest-grid">
+        <div class="interest"><b>Music ♫</b><span>Melodi untuk menemani hari.</span></div>
+        <div class="interest"><b>Photography</b><span>Menyimpan cerita lewat gambar.</span></div>
+        <div class="interest"><b>Nature 🍃</b><span>Menikmati suasana alam.</span></div>
+        <div class="interest"><b>Reading</b><span>Menjelajahi dunia lewat cerita.</span></div>
+        <div class="interest"><b>Travel</b><span>Menemukan tempat baru.</span></div>
+        <div class="interest"><b>Autumn 🍂</b><span>Warna hangat dan udara sejuk.</span></div>
+      </div>
+    </section>
+    <footer>MADE WITH WARMTH · AUTUMN IN EDINBURGH 🍁</footer>
+  </main>
+</body>
+</html>
